@@ -78,3 +78,27 @@ The Uniswap Interface supports swapping, adding liquidity, removing liquidity an
 
 The Uniswap V1 interface for mainnet and testnets is accessible via IPFS gateways
 linked from the [v1.0.0 release](https://github.com/Uniswap/uniswap-interface/releases/tag/v1.0.0).
+
+BACKEND
+
+Deploy V3 Core, V3 Periphery, permit2, universal-router
+GraphQL cannot be fetched you must fetch schema.graphql from a new Uniswap V3 interface into src/thegraph to populate the generated file.
+
+INTERFACE
+
+git clone -n https://github.com/Uniswap/interface.git
+git checkout -b wf bc48b4fb0e1abb2c5961ecee3e8cc134dee6ac87 (THIS IS THE CURRENT WORKING VERSION)
+
+Change FACTORY_ADDRESS in node_modules/@uniswap/v3-sdk/dist/constants.d.ts
+
+Update PERMIT2 in node_modules/@uniswap/permit2-sdk/dist/constants.d.ts
+
+UNVERSAL_ROUTER_ADDRESS and PERMIT2_ADDRESS in 
+node_modules/@uniswap/universal-router-sdk/dist/universal-router-sdk.cjs.development.js 
+node_modules/@uniswap/universal-router-sdk/dist/universal-router-sdk.esm.js
+
+PERMIT2_ADDRESS in 
+node_modules/@uniswap/universal-router-sdk/dist/utils/constants.d.ts
+
+yarn run prepare 
+yarn start
